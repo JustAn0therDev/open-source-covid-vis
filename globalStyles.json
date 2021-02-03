@@ -1,0 +1,18 @@
+{
+    "body": {
+        "margin": 0,
+        "padding": 0,
+        "box-sizing": "border-box",
+        "background-color": "#222222",
+        "font-family": "Trebuchet MS"
+    },
+    "theme":  {
+        "colors": {
+            "primary": "#aa00aa",
+            "secondary": "#0000a0"
+        }
+    },
+    "misc": {
+        "fontFamilyUrl": "https://fonts.googleapis.com/css?family=Roboto"
+    }
+}
