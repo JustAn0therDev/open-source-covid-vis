@@ -8,7 +8,7 @@
     },
     "theme":  {
         "colors": {
-            "primary": "#cc00aa",
+            "primary": "#000000",
             "secondary": "#0000a0"
         }
     },

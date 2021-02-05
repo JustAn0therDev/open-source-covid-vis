@@ -1,14 +1,20 @@
 import styled from "styled-components";
 
 const Section = styled.section`
-    width: 99.9vw;
-    height: 40vh;
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-    align-items: center;
-    text-align: center;
-    font-size: 3rem;
-    color: ${({ theme }) => theme.colors.primary};
+
+    @media screen and (min-width: 60px) {
+        height: 40vh;
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        text-align: center;
+        font-size: 3rem;
+        color: ${({ theme }) => theme.colors.primary};
+    }
+
+    @media screen and (min-width: 768px) {
+        grid-template-columns: 2fr 2fr;
+    }
 `
 
 const GraphLink = styled.a`

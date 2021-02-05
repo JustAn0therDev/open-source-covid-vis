@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 
 const Section = styled.section`
-    /* border: 1px solid red; */
-    width: 99.9vw;
-    height: 50vh;
+    height: 35vh;
     background-color: #111111;
     display: flex;
     flex: 1;
