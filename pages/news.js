@@ -10,7 +10,7 @@ export default function News({ fontFamilyUrl }) {
       <link href={fontFamilyUrl} rel="stylesheet"></link>
     </Head>
       <Title>
-        NEWS
+        READ THE NEWS
       </Title>
       <NewsList>
 
