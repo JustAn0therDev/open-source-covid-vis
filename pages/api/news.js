@@ -7,9 +7,9 @@ const cacheNewstimestampFilePath = 'cache/news_timestamp.json'
 export default async function getNews(req, res) {
     let response
     let newsTimestampObject = JSON.parse(fs.readFileSync('cache/news_timestamp.json', { encoding: 'utf-8' }))
+    let now = new Date().getTime()
 
-    if (!newsTimestampObject.timestamp || newsTimestampObject.timestamp <= new Date()) {
-        console.log('rebuilding cache...')
+    if (Number(newsTimestampObject.timestamp) <= now) {
         let twoHoursInMilliseconds = 2 * 60 * 60 * 1000
 
         response = await (await fetch('https://coronavirus-smartable.p.rapidapi.com/news/v1/US/', {
@@ -21,7 +21,8 @@ export default async function getNews(req, res) {
                 method: 'GET'
             })).json()
 
-        newsTimestampObject.timestamp = (new Date().getTime() + twoHoursInMilliseconds).toJSON()
+        now = now + twoHoursInMilliseconds
+        newsTimestampObject.timestamp = now.toString()
 
         fs.writeFileSync(cacheFilePath, JSON.stringify(response), { encoding: 'utf-8' })
         fs.writeFileSync(cacheNewstimestampFilePath, JSON.stringify(newsTimestampObject), { encoding: 'utf-8' })
