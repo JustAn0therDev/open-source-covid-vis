@@ -5,7 +5,6 @@ const fetcher = (url) => fetch(url).then(response => response.json())
 
 const Ul = styled.ul`
     list-style: none;
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -13,8 +12,19 @@ const Ul = styled.ul`
     align-items: center;
 
     & > li {
-        /* TODO: change this later, its ugly */
-        margin-left: -37px;
+        padding-bottom: 10px;
+        margin-right: 35px;
+    }
+
+    & > li > a {
+        text-decoration: none;
+        color: ${({ theme }) => theme.colors.primary};
+        transition: ease 0.5s;
+        &:hover {
+            font-size: 1.5rem;
+            text-decoration: underline;
+        }
+        cursor: pointer;
     }
 `
 

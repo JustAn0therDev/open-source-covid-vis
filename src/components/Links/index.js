@@ -35,7 +35,7 @@ const NewsLink = styled.a`
     &:hover {
         font-size: 3.5rem;
         text-decoration: underline;
-    }   
+    }
     cursor: pointer;
 `
 

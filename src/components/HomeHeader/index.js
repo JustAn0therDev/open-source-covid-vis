@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const Section = styled.section`
-    height: 35vh;
+    height: 30vh;
     background-color: #111111;
     display: flex;
     flex: 1;
