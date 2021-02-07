@@ -1,11 +1,10 @@
 import fs from 'fs'
-import { join } from 'path'
 import fetch from 'node-fetch'
 
-let cacheFilePath = join(__dirname, 'news.json')
+let cacheFilePath = 'news.json'
 
 if (process.platform == 'win32') {
-    cacheFilePath = '.' + cacheFilePath.replace(/\\/g, '/')
+    cacheFilePath = './' + cacheFilePath
 }
 
 export default async function getNews(req, res) {
