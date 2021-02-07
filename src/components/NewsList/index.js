@@ -1,4 +1,5 @@
 import useSWR from 'swr'
+import fetch from 'node-fetch'
 import styled from 'styled-components'
 
 const fetcher = (url) => fetch(url).then(response => response.json())

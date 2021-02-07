@@ -1,41 +1,46 @@
-import { XYPlot, VerticalBarSeries, MarkSeries, XAxis, YAxis, LineSeries } from 'react-vis'
+import { useEffect, useState } from 'react'
+import { XYPlot, VerticalBarSeries, MarkSeries, XAxis, YAxis, AreaSeries } from 'react-vis'
 
+const chartColor = '#000099', height = 600, width = 600, margin = { left: 100 }
 
-const data = [
-    {x: 1, y: 5},
-    {x: 2, y: 4},
-    {x: 3, y: 3},
-    {x: 4, y: 1},
-    {x: 5, y: 2},
-]
+export default function Chart({ propData, metric, chartType }) {
+    let [data, setData] = useState([])
 
-export default function Chart({ chartType }) {
+    useEffect(() => {
+        setData(propData.map(item => {
+            const itemToReturn = {}
+            itemToReturn.x = item['countryCode']
+            itemToReturn.y = item[metric]
+            return itemToReturn
+        }))
+    }, [metric, propData])
+
     switch (chartType.toLowerCase()) {
         case 'vertical':
             return (
-                <XYPlot height={600} width={600} >
-                    <XAxis />
-                    <YAxis />
-                    <VerticalBarSeries data={data} />
+                <XYPlot height={height} width={width} margin={margin}>
+                    <XAxis tickTotal={data.length} />
+                    <YAxis title={metric} />
+                    <VerticalBarSeries data={data} color={chartColor} />
                 </XYPlot>
             )            
-    
+        
+        case 'area':
+            return (
+                <XYPlot height={height} width={width} margin={margin}>
+                    <XAxis tickTotal={data.length} />
+                    <YAxis title={metric} />
+                    <AreaSeries data={data} color={chartColor} />
+                </XYPlot>
+            )            
+
         case 'mark':
             return (
-                <XYPlot height={600} width={600}>
-                    <XAxis />
-                    <YAxis />
-                    <MarkSeries data={data} />
+                <XYPlot height={height} width={width} margin={margin}>
+                    <XAxis tickTotal={data.length} />
+                    <YAxis title={metric} />
+                    <MarkSeries data={data} color={chartColor} />
                 </XYPlot>
             )
-        default:
-            return (
-                <XYPlot height={600} width={600}>
-                    <XAxis />
-                    <YAxis />
-                    <LineSeries data={data} />
-                </XYPlot>
-            )
-            break;
-    }
+    } 
 }

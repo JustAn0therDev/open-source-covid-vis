@@ -1,5 +1,5 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import globalStylesFromJsonFile from '../globalStyles.json'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -45,6 +45,7 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
     align-items: center;
     font-family: 'Roboto';
+    overflow-x: hidden;
   }
 
   body section {

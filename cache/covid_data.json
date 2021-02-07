@@ -1,0 +1,46 @@
+{
+    "covidData": [
+        {
+            "countryName": "Canada",
+            "countryCode": 1,
+            "confirmed": 659171,
+            "deaths": 16938,
+            "recovered": 557652
+        },
+        {
+            "countryName": "USA",
+            "countryCode": 2,
+            "confirmed": 22884826,
+            "deaths": 382999,
+            "recovered": 13467034
+        },
+        {
+            "countryName": "Brazil",
+            "countryCode": 3,
+            "confirmed": 8105790,
+            "deaths": 203100,
+            "recovered": 7144011
+        }, 
+        {
+            "countryName": "China",
+            "countryCode": 4,
+            "confirmed": 88462,
+            "deaths": 4634,
+            "recovered": 82808
+        },
+        {
+            "countryName": "Italy",
+            "countryCode": 5,
+            "confirmed": 3452930,
+            "deaths": 754169,
+            "recovered": 1617804
+        },
+        {
+            "countryName": "United Kingdom",
+            "countryCode": 6,
+            "confirmed": 3072349,
+            "deaths": 81431,
+            "recovered": 1406967
+        }
+    ]
+}
