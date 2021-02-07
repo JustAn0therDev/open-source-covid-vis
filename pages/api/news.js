@@ -1,10 +1,16 @@
 import fs from 'fs'
+import { join } from 'path'
 import fetch from 'node-fetch'
-import cachedJson from '../../cache/news.json'
+
+let cacheFilePath = join(__dirname, 'news.json')
+
+if (process.platform == 'win32') {
+    cacheFilePath = '.' + cacheFilePath.replace(/\\/g, '/')
+}
 
 export default async function getNews(req, res) {
     let newsToReturn
-    let cachedObject = cachedJson
+    let cachedObject = JSON.parse(fs.readFileSync(cacheFilePath, { encoding: 'utf-8' }))
     let now = new Date().getTime()
     let cacheExpired = Number(cachedObject.timestamp) <= now
 
@@ -27,7 +33,7 @@ export default async function getNews(req, res) {
 
         fs.writeFileSync(cacheFilePath, JSON.stringify(cachedObject), { encoding: 'utf-8' })
     } else {
-        newsToReturn = cachedJson.data
+        newsToReturn = JSON.parse(fs.readFileSync(cacheFilePath, { encoding: 'utf-8' })).data
     }
     return res.status(200).json(newsToReturn)
 }
