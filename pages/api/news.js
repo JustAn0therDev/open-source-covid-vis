@@ -13,12 +13,14 @@ export default async function getNews(req, res) {
                 method: 'GET'
             })
         
+        const responseObject = await response.json() 
         const twoHoursInMilisseconds = 2 * 60 * 60 * 1000
-        cache.put('response-news', await response.json(), twoHoursInMilisseconds, function (key, value) {
+
+        cache.put('response-news', responseObject, twoHoursInMilisseconds, function (key, value) {
             console.log(`Cache expired. Re-building it. Key: ${key}. Value: ${value}`)
         })
 
-        cachedResponse = await response.json()
+        cachedResponse = responseObject
     }
 
     return res.status(200).json(cachedResponse) 
