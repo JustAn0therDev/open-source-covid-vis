@@ -9,6 +9,7 @@ export default function Home({ fontFamilyUrl }) {
     <Head>
       <title>Home</title>
       <link href={fontFamilyUrl} rel="stylesheet"></link>
+      <script type="text/javascript" src="/static/newrelic.js"></script> 
     </Head>
       <HomeHeader></HomeHeader>
       <OpenSourceArticle></OpenSourceArticle>
