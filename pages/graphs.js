@@ -3,15 +3,20 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import Title from '../src/components/Title/index'
 import Chart from '../src/components/Chart/index'
+import Navbar from '../src/components/Navbar/index'
 import covidDataJson from '../cache/covid_data.json'
 import Subtitle from '../src/components/Subtitle/index'
 
 const { covidData } = covidDataJson
 
 const Div = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr 2fr;
-
+  display: flex;
+  width: 99.9vw;
+  /* grid-template-columns: 2fr 1fr 2fr; */
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 5px;
 `
 
 const TitleDiv = styled.div`
@@ -25,6 +30,7 @@ const CenteredDiv = styled.div`
   display: grid;
   grid-template-columns: 2fr 2fr;
   align-items: center;
+  margin-left: 30px;
 
   & > div {
     display: flex;
@@ -105,6 +111,7 @@ export default function Graphs({ fontFamilyUrl }) {
       <script type="text/javascript" src="newrelic.js"></script> 
     </Head>
     
+      <Navbar></Navbar>
       <TitleDiv>
         <Title>
           VISUALIZE COVID-19 DATA
@@ -120,7 +127,6 @@ export default function Graphs({ fontFamilyUrl }) {
       <Chart chartType={chartType} propData={covidData ? covidData : []} metric={metric}>
 
       </Chart>
-      <div></div>
       <CenteredDiv>
         <div>
           <ChartButton onClick={() => { setChartType('vertical') }}>Set Vertical Bars</ChartButton>

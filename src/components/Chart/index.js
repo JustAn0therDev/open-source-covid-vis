@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react'
 import { XYPlot, VerticalBarSeries, MarkSeries, XAxis, YAxis, AreaSeries } from 'react-vis'
 
-const chartColor = '#000099', height = 600, width = 600, margin = { left: 100 }
+const height = 600, width = 600, margin = { left: 110 }, metricColors = {
+    'recovered': '#009900',
+    'deaths': '#990000',
+    'confirmed': '#000099'
+}
 
 export default function Chart({ propData, metric, chartType }) {
     let [data, setData] = useState([])
@@ -21,7 +25,7 @@ export default function Chart({ propData, metric, chartType }) {
                 <XYPlot height={height} width={width} margin={margin}>
                     <XAxis tickTotal={data.length} />
                     <YAxis title={metric} />
-                    <VerticalBarSeries data={data} color={chartColor} />
+                    <VerticalBarSeries data={data} color={metricColors[metric]} />
                 </XYPlot>
             )            
         
@@ -30,7 +34,7 @@ export default function Chart({ propData, metric, chartType }) {
                 <XYPlot height={height} width={width} margin={margin}>
                     <XAxis tickTotal={data.length} />
                     <YAxis title={metric} />
-                    <AreaSeries data={data} color={chartColor} />
+                    <AreaSeries data={data} color={metricColors[metric]} />
                 </XYPlot>
             )            
 
@@ -39,7 +43,7 @@ export default function Chart({ propData, metric, chartType }) {
                 <XYPlot height={height} width={width} margin={margin}>
                     <XAxis tickTotal={data.length} />
                     <YAxis title={metric} />
-                    <MarkSeries data={data} color={chartColor} />
+                    <MarkSeries data={data} color={metricColors[metric]} />
                 </XYPlot>
             )
     } 
