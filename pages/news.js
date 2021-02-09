@@ -8,7 +8,7 @@ export default function News({ fontFamilyUrl }) {
     <Head>
       <title>COVID-19 NEWS</title>
       <link href={fontFamilyUrl} rel="stylesheet"></link>
-      <script type="text/javascript" src="public/newrelic.js"></script> 
+      <script type="text/javascript" src="newrelic.js"></script> 
     </Head>
       <Title>
         READ THE NEWS
